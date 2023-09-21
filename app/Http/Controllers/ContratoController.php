@@ -153,7 +153,7 @@ class ContratoController extends Controller
 
         $contrato = Contrato::create($data);
 
-        return redirect()->route('contrato.index')
+        return redirect()->route('Contrato.index')
             ->with('success', 'Contrato creado correctamente.');
     }
 
@@ -212,7 +212,7 @@ class ContratoController extends Controller
         $contrato = Contrato::findOrFail($id);
         $contrato->update($request->all());
 
-        return redirect()->route('contrato.index')
+        return redirect()->route('Contrato.index')
             ->with('success', 'Contrato actualizado correctamente');
     }
 

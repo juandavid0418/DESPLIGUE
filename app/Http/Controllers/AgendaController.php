@@ -115,7 +115,7 @@ class AgendaController extends Controller
         $user->ejecucion = 1;
         $user->save();
         
-        return redirect()->route('agenda.index')
+        return redirect()->route('Agenda.index')
             ->with('success', 'Agenda creada correctamente.');
     }
 
@@ -185,7 +185,7 @@ class AgendaController extends Controller
     $agenda = Agenda::findOrFail($id);
     $agenda->update($validatedData);
 
-    return redirect()->route('agenda.index')
+    return redirect()->route('Agenda.index')
         ->with('success', 'Agenda Actualizada .');
 }
 
