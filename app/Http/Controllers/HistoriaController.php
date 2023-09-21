@@ -31,7 +31,7 @@ class HistoriaController extends Controller
     public function pdf(){
 
         $historias=Historia::all();
-        $pdf = Pdf::loadView('Historia.pdf', compact('historias'));
+        $pdf = Pdf::loadView('historia.pdf', compact('historias'));
         return $pdf->stream();
 
     }

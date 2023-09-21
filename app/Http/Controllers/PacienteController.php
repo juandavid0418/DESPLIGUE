@@ -108,7 +108,7 @@ class PacienteController extends Controller
         $paciente = Paciente::create(array_merge($validatedData, ['estado' => 0,'ejecucion' => 0]));
         
 
-        return redirect()->route('paciente.index')
+        return redirect()->route('Paciente.index')
             ->with('success', 'Paciente creado correctamente.');
     }
 
