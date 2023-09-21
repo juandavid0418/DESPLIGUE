@@ -48,7 +48,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('Historia', App\Http\Controllers\HistoriaController::class);
     Route::resource('Paciente', App\Http\Controllers\PacienteController::class);
     Route::resource('Permiso', App\Http\Controllers\PermisoController::class);
-    Route::resource('Rol', App\Http\Controllers\RolController::class);
+    Route::resource('Rol', App\Http\Controllers\rolController::class);
     Route::resource('Ep', App\Http\Controllers\EpController::class);
     Route::resource('rolespermisos', App\Http\Controllers\RolesPermisoController::class);
     Route::post('/reactivatePaciente', [PacienteController::class, 'reactivatePaciente']);

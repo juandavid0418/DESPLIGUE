@@ -38,7 +38,7 @@ class UserController extends Controller
     
         $totalUsers = User::count();
         
-        return view('User.index', compact('users', 'totalUsers', 'contrato'))
+        return view('user.index', compact('users', 'totalUsers', 'contrato'))
         ->with('i', (request()->input('page', 1) - 1) * $users->perPage());
     }
 
@@ -169,7 +169,7 @@ class UserController extends Controller
 
         ]);
 
-        return redirect()->route('User.index')
+        return redirect()->route('user.index')
             ->with('success', 'Usuario creado correctamente.');
           
     }
@@ -256,7 +256,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('User.index')
+        return redirect()->route('user.index')
             ->with('success', 'Usuario actualizado correctamente.');
     }
 
@@ -264,7 +264,7 @@ class UserController extends Controller
     {
         $user = User::find($id)->delete();
 
-        return redirect()->route('User.index')
+        return redirect()->route('user.index')
             ->with('success', 'User eliminado correctamente');
     }
 
