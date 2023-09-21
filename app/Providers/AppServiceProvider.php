@@ -11,9 +11,10 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
+    
     public function register(): void
     {
-        //
+
     }
 
     /**
@@ -21,6 +22,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if ($this->app->environment('production')) {
+            \URL::forceScheme('https');
+        }
+        //
         Validator::extend('digitos_minimos', function ($attribute, $value, $parameters, $validator) {
             return preg_match('/\d{' . $parameters[0] . ',}/', $value);
         });
