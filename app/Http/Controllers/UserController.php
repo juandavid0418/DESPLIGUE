@@ -46,7 +46,7 @@ class UserController extends Controller
     public function pdf(){
 
         $user=User::all();
-        $pdf = Pdf::loadView('User.pdf', compact('user'));
+        $pdf = Pdf::loadView('user.pdf', compact('user'));
         return $pdf->stream();
 
     }
@@ -60,7 +60,7 @@ class UserController extends Controller
         ->selectRaw("concat(eps.eps, ' - ', contratos.Nro_contrato) as eps_contrato, contratos.id")
         ->pluck('eps_contrato', 'contratos.id');    
         $eps = Ep::pluck('eps','id');
-        return view('User.create', compact('user', 'rol','contrato','eps'));
+        return view('user.create', compact('user', 'rol','contrato','eps'));
     }
 
     protected function validator(array $data)
@@ -178,7 +178,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        return view('User.show', compact('user'));
+        return view('user.show', compact('user'));
     }
 
     public function edit($id)

@@ -43,7 +43,7 @@ class PacienteController extends Controller
     public function pdf(){
 
         $pacientes=Paciente::all();
-        $pdf = Pdf::loadView('Paciente.pdf', compact('pacientes'));
+        $pdf = Pdf::loadView('paciente.pdf', compact('pacientes'));
         return $pdf->stream();
 
     }
@@ -108,7 +108,7 @@ class PacienteController extends Controller
         $paciente = Paciente::create(array_merge($validatedData, ['estado' => 0,'ejecucion' => 0]));
         
 
-        return redirect()->route('Paciente.index')
+        return redirect()->route('paciente.index')
             ->with('success', 'Paciente creado correctamente.');
     }
 
@@ -187,7 +187,7 @@ class PacienteController extends Controller
         $paciente = Paciente::findOrFail($id);
         $paciente->update($validatedData);
     
-        return redirect()->route('Paciente.index')
+        return redirect()->route('paciente.index')
             ->with('success', 'Paciente actualizado correctamente.');
     }
     
@@ -201,7 +201,7 @@ class PacienteController extends Controller
     {
         $paciente = Paciente::find($id)->delete();
 
-        return redirect()->route('Paciente.index')
+        return redirect()->route('paciente.index')
             ->with('success', 'Paciente eliminado correctamente');
     }
 
