@@ -27,7 +27,7 @@ use App\Http\Controllers\HistoriaController;
 */
 
 Route::get('/', function () {
-    return view('Homepage');
+    return view('homepage');
 });    
 
 
