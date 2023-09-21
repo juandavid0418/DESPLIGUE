@@ -42,7 +42,7 @@ class ContratoController extends Controller
     public function pdf(){
 
         $contratos=Contrato::all();
-        $pdf = Pdf::loadView('Contrato.pdf', compact('contratos'));
+        $pdf = Pdf::loadView('contrato.pdf', compact('contratos'));
         return $pdf->stream();
 
     }
@@ -153,7 +153,7 @@ class ContratoController extends Controller
 
         $contrato = Contrato::create($data);
 
-        return redirect()->route('Contrato.index')
+        return redirect()->route('contrato.index')
             ->with('success', 'Contrato creado correctamente.');
     }
 
@@ -212,7 +212,7 @@ class ContratoController extends Controller
         $contrato = Contrato::findOrFail($id);
         $contrato->update($request->all());
 
-        return redirect()->route('Contrato.index')
+        return redirect()->route('contrato.index')
             ->with('success', 'Contrato actualizado correctamente');
     }
 
@@ -226,7 +226,7 @@ class ContratoController extends Controller
     {
         $contrato = Contrato::find($id)->delete();
 
-        return redirect()->route('Contrato.index')
+        return redirect()->route('contrato.index')
             ->with('success', 'Contrato eliminado correctamente');
     }
 

@@ -53,7 +53,7 @@ class AgendaController extends Controller
     public function pdf(){
 
         $agendas=Agenda::all();
-        $pdf = Pdf::loadView('Agenda.pdf', compact('agendas'));
+        $pdf = Pdf::loadView('agenda.pdf', compact('agendas'));
         return $pdf->stream();
 
     }
@@ -115,7 +115,7 @@ class AgendaController extends Controller
         $user->ejecucion = 1;
         $user->save();
         
-        return redirect()->route('Agenda.index')
+        return redirect()->route('agenda.index')
             ->with('success', 'Agenda creada correctamente.');
     }
 
@@ -185,7 +185,7 @@ class AgendaController extends Controller
     $agenda = Agenda::findOrFail($id);
     $agenda->update($validatedData);
 
-    return redirect()->route('Agenda.index')
+    return redirect()->route('agenda.index')
         ->with('success', 'Agenda Actualizada .');
 }
 
@@ -198,7 +198,7 @@ class AgendaController extends Controller
     {
         $agenda = Agenda::find($id)->delete();
 
-        return redirect()->route('Agenda.index')
+        return redirect()->route('agenda.index')
             ->with('success', 'Agenda eliminado con éxito');
     }
 }
